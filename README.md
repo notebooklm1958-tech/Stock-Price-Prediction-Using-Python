@@ -2,4 +2,25 @@
 
 https://youtu.be/QIUxPv5PJOY?si=ZaQI9qtTUcJhvtzz
 
- Résumé de la vidéoLa vidéo explique étape par étape comment prédire le prix de clôture de l'action Apple Inc. (AAPL) en utilisant un réseau de neurones récurrent de type LSTM (Long Short-Term Memory) sous Google Colab.  Introduction & Contexte :Présentation des réseaux LSTM : un type de réseau de neurones récurrents adapté au traitement des séquences temporelles (comme les cours de la bourse).  L'objectif est d'utiliser l'historique des 60 derniers jours pour prédire le prix du 61ème jour.  Récupération & Préparation des données :Importation des bibliothèques (numpy, pandas, sklearn, keras, matplotlib, pandas_datareader).  Téléchargement des données boursières d'Apple de début 2012 à fin 2019.  Extraction de la colonne Close (prix de clôture) et visualisation de la courbe des prix.  Mise à l'échelle & Séparation des données :Normalisation des données entre 0 et 1 avec MinMaxScaler pour faciliter l'apprentissage du réseau[cite: 1].Découpage en ensemble d'entraînement (environ 80% des données) et ensemble de test (20%)[cite: 1].Création de fenêtres glissantes de 60 jours pour construire la matrice de données d'entrée[cite: 1].Redimensionnement des données en 3D ([échantillons, pas de temps, caractéristiques]) pour répondre aux prérequis de l'architecture LSTM[cite: 1].Construction & Entraînement du modèle LSTM :Couche 1 : LSTM de 50 unités (return_sequences=True) avec la forme d'entrée[cite: 1].Couche 2 : LSTM de 50 unités (return_sequences=False)[cite: 1].Couche 3 : Dense de 25 unités[cite: 1].Couche 4 : Dense de 1 unité (prix prédit)[cite: 1].Compilation avec l'optimiseur adam et la fonction de perte mean_squared_error[cite: 1].Entraînement (fit) avec batch_size=1 et epochs=1[cite: 1].Évaluation & Prédictions :Application du modèle sur les données de test, puis conversion inverse des prédictions à leur échelle réelle (inverse_transform)[cite: 1].Calcul de la racine de l'erreur quadratique moyenne (RMSE)[cite: 1].Affichage graphique comparant les prix réels et les prix prédits par le modèle[cite: 1].Test final de prédiction du prix du 18 décembre 2019 et comparaison avec le cours réel[cite: 1].
+ Résumé de la vidéo & Code Python
+Résumé de la vidéo
+Dans cette vidéo issue de la chaîne Computer Science, l'auteur présente une méthode complète pour prédire les prix de clôture de l'action Apple Inc. (AAPL) à l'aide d'un réseau de neurones récurrent de type LSTM (Long Short-Term Memory) sous Python (avec Keras et TensorFlow).
+
+Étapes principales du tutoriel :
+Importation des bibliothèques : pandas_datareader, numpy, pandas, scikit-learn (MinMaxScaler), keras (Sequential, Dense, LSTM) et matplotlib [cite: 1].
+Récupération des données : Téléchargement de l'historique boursier d'Apple depuis Yahoo Finance entre 2012 et fin 2019 [cite: 1].
+Visualisation : Affichage de la courbe historique du prix de clôture (Close) [cite: 1].
+Préparation & Normalisation : Extraction du prix de clôture, mise à l'échelle des données entre 0 et 1 avec MinMaxScaler [cite: 1].
+Création des ensembles d'entraînement (Training) :
+Utilisation d'une fenêtre glissante de 60 jours passés pour prédire le prix du 61ème jour [cite: 1].
+Redimensionnement (Reshape) des tableaux NumPy en 3D ([samples, time steps, features]) requis par l'architecture LSTM [cite: 1].
+Construction & Entraînement du modèle LSTM :
+Première couche LSTM à 50 neurones (return_sequences=True) [cite: 1].
+Seconde couche LSTM à 50 neurones (return_sequences=False) [cite: 1].
+Couche dense intermédiaire à 25 neurones puis couche de sortie à 1 neurone [cite: 1].
+Compilation avec l'optimiseur adam et la perte mean_squared_error [cite: 1].
+Entraînement (fit) avec un batch size de 1 sur 1 epoch [cite: 1].
+Évaluation & Visualisation des prédictions :
+Calcul de la métrique RMSE (Root Mean Squared Error) [cite: 1].
+Graphique comparatif entre les prix réels de validation et les prix prédits par le modèle [cite: 1].
+Test de prédiction sur une date spécifique : Prédiction du prix de clôture pour le 18 décembre 2019 à partir des 60 jours précédents, puis comparaison avec le prix réel observé [cite: 1
